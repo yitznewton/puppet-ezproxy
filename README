@@ -1,10 +1,50 @@
 Puppet module (>=v2.6) for EZproxy on Ubuntu
+============================================
 
-Add your license key as files/ezproxy.key
+Intro
+-----
 
-Add new database config snippets in files/configs, and reference in the
-instance specifications (see below). Sample manifest:
+- Runs as user `ezproxy`, creating it if necessary
+- Includes startup script `/etc/init.d/ezproxy`
+- Includes enable/disable scripts
+  - `/usr/local/sbin/ezpensite`
+  - `/usr/local/sbin/ezpdissite`
 
+Creates tree in /var/www/ezproxy:
+```
+/var/www/ezproxy/
+├── configs
+│   ├── access_medicine.config.txt
+│   ├── acm.config.txt
+│   └── [etc.]
+├── docs
+│   ├── cookie.htm
+│   ├── https.htm
+│   └── [etc.]
+├── sites-available
+│   ├── 01-lij
+│   │   ├── config.txt
+│   │   ├── docs -> /var/www/ezproxy/docs
+│   │   ├── ezproxy
+│   │   ├── ezproxy.key -> /var/www/ezproxy/ezproxy.key
+│   │   └── user.txt
+│   └── 02-tun
+│       ├── config.txt
+│       ├── docs -> /var/www/ezproxy/docs
+│       ├── ezproxy
+│       ├── ezproxy.key -> /var/www/ezproxy/ezproxy.key
+│       └── user.txt
+└── sites-enabled
+    └── 01-lij -> /var/www/ezproxy/sites-available/01-lij
+```
+
+Setup
+-----
+
+- Add your license key as `files/ezproxy.key`
+- Add new database config snippets as `files/configs/foo.config.txt`, and reference in the instance specifications as `foo` (see below). Sample manifest:
+
+```
 include ezproxy
 
 ezproxy::instance { '01-lij':
@@ -25,5 +65,5 @@ ezproxy::instance { '02-tun':
     ebrary,
   ],
 }
-
+```
 
