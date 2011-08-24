@@ -1,0 +1,4 @@
+Title   ACLS Humanities E-Book Project
+URL     http://www.humanitiesebook.org
+DJ      humanitiesebook.org
+HJ      www.humanitiesebook.org

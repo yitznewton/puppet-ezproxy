@@ -1,0 +1,6 @@
+# For Piroska Szabo
+Title Anatomy
+URL http://www.med.unc.edu/anatomy
+Host www.med.unc.edu
+Host syllabus.med.unc.edu
+DJ med.unc.edu

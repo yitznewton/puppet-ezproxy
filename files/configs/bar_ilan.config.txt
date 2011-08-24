@@ -1,0 +1,18 @@
+Option DomainCookieOnly
+Title Bar Ilan Responsa Project
+URL http://www.responsa.co.il/LoginForm.aspx
+HJ  www.responsa.co.il
+DJ  responsa.co.il
+Find "www.responsa.co.il/
+Replace "^pwww.responsa.co.il^/
+Option Cookie
+
+# *********************************************
+# test
+# Responsa Bar-Ilan
+# when working, direct to:  http://lb-proxy8.touro.edu/login/birp
+# info from: http://www2.potsdam.edu/ezproxy/wiki/index.php/EZproxy.cfg#FormVariable_and_URL_-Form_.28Username_.26_Password_for_web_page_based_authentication.29
+Title Bar Ilan Responsa Project (2)
+URL -Form=post birp http://www.responsa.co.il/login.aspx
+FormVariable login=touro
+FormVariable password=midtown

@@ -1,0 +1,7 @@
+Title JSTOR
+Option DomainCookieOnly
+URL http://www.jstor.org/
+URL http://links.jstor.org/
+DJ  jstor.org
+DJ  links.jstor.org
+Option Cookie

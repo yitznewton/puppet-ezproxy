@@ -1,0 +1,4 @@
+Title  AccessMedicine
+URL    http://www.accessmedicine.com
+DJ     accessmedicine.com
+HJ     www.accessmedicine.com

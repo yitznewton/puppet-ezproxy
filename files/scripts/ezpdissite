@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ ! -d "/var/www/ezproxy/sites-available/$1" ]
+then
+  echo "No such site $1"
+  exit 1
+fi
+
+rm -f "/var/www/ezproxy/sites-enabled/$1"
+

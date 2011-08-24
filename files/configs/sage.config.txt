@@ -1,0 +1,5 @@
+Title   Sage Publishing
+URL     http://online.sagepub.com
+HJ      online.sagepub.com
+DJ      psp.sagepub.com
+DJ      sagepub.com

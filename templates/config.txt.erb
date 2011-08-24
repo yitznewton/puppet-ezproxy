@@ -1,0 +1,17 @@
+Option ProxyByHostname
+RunAs ezproxy
+Interface <%= ip %>
+LoginPort <%= port %>
+Name <%= host %>
+
+IncludeFile ../../configs/logfile.config.txt
+
+MaxVirtualHosts <%= maxvhosts %>
+MaxConcurrentTransfers 75
+MaxLifetime 20
+MaxSessions 150
+
+<% databases.each do |database| -%>
+IncludeFile ../../configs/<%= database %>.config.txt
+
+<% end -%>

@@ -1,0 +1,29 @@
+Puppet module (>=v2.6) for EZproxy on Ubuntu
+
+Add your license key as files/ezproxy.key
+
+Add new database config snippets in files/configs, and reference in the
+instance specifications (see below). Sample manifest:
+
+include ezproxy
+
+ezproxy::instance { '01-lij':
+  ip => '192.168.65.220',
+  host => 'lb-proxy1.touro.edu',
+  maxvhosts => 200,
+  databases => [
+    proquest,
+    ebsco,
+  ],
+}
+
+ezproxy::instance { '02-tun':
+  ip => '192.168.65.221',
+  host => 'lb-proxy2.touro.edu',
+  maxvhosts => 1100,
+  databases => [
+    ebrary,
+  ],
+}
+
+

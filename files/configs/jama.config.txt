@@ -1,0 +1,3 @@
+Title   JAMA + Archives
+URL     http://pubs.ama-assn.org
+DJ      ama-assn.org

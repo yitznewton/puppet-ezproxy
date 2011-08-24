@@ -1,0 +1,3 @@
+Title   Touro College Login
+URL     http://www.touro.edu/library/commerdb/login.asp
+DJ      www.touro.edu

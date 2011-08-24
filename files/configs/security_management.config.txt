@@ -1,0 +1,4 @@
+Title   Security Management Practices
+URL     http://www.faulkner.com/products/securitymgt/
+HJ      www.faulkner.com/products/securitymgt/
+DJ      faulkner.com/products/securitymgt/

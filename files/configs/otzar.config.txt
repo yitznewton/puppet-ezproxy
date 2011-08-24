@@ -1,0 +1,8 @@
+Title Otzar HaHochma
+URL http://www.otzar.org/otzar.asp
+H www.otzar.org
+H www.otzar.net
+H www.otzar.biz
+D otzar.org
+D otzar.net
+D otzar.biz

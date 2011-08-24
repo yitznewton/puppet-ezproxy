@@ -1,0 +1,4 @@
+Title   Ovid / Silverplatter
+URL     http://ovidsp.ovid.com/autologin.html
+DJ      ovid.com
+HJ      ovidsp.ovid.com

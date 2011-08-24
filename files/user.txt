@@ -1,0 +1,8 @@
+yitzchas:Ys~-}=:admin
+
+::ticket
+TimeValid 90
+MD5 tourosecret
+Expired; Deny old.htm
+/ticket
+

@@ -1,0 +1,16 @@
+Title Lexis-Nexis
+URL http://web.lexis-nexis.com/
+DJ lexis-nexis.com
+DJ lexisnexis.com
+DJ lexis.com
+DJ cispubs.com
+HJ web.lexis-nexis.com
+HJ web.lexisnexis.com
+HJ cisweb.lexis-nexis.com
+HJ cisweb.lexisnexis.com
+HJ www.lexis-nexis.com
+HJ www.lexisnexis.com
+Find GetCookie("LNAUTH")
+Replace "LNAUTH-IP"
+Find NAME="_PRIORREFERER" VALUE="http://
+Replace NAME="_PRIORREFERER" VALUE="http://^A

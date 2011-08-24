@@ -1,0 +1,4 @@
+Title   New England Journal of Medicine
+URL     http://www.nejm.org
+HJ      www.nejm.org
+DJ      nejm.org

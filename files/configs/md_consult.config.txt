@@ -1,0 +1,4 @@
+URL     http://www.mdconsult.com
+DJ      home.mdconsult.com
+DJ      mdconsult.com
+HJ      www.mdconsult.com

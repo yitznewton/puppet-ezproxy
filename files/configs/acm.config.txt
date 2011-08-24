@@ -1,0 +1,5 @@
+Title ACM Portal
+URL http://portal.acm.org
+Host portal.acm.org
+DJ portal.acm.org
+DJ delivery.acm.org

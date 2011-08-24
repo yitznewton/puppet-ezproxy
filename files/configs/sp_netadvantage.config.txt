@@ -1,0 +1,4 @@
+Title   Standard & Poor's NetAdvantage
+URL     http://www.netadvantage.standardandpoors.com
+DJ      netadvantage.standardandpoors.com
+HJ      www.netadvantage.standardandpoors.com

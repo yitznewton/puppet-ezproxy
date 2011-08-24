@@ -1,0 +1,13 @@
+Title  PsychiatryOnline
+URL    http://www.psychiatryonline.com
+DJ     psychiatryonline.com
+HJ     www.psychiatryonline.com
+DJ     psychiatryonline.org
+HJ     www.psychiatryonline.org
+HJ     ajp.psychiatryonline.org
+HJ     psychservices.psychiatryonline.org
+HJ     ap.psychiatryonline.org
+HJ     neuro.psychiatryonline.org
+HJ     jppr.psychiatryonline.org
+HJ     pn.psychiatryonline.org
+HJ     psy.psychiatryonline.org

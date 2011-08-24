@@ -1,0 +1,12 @@
+Cookie BROWSER_SUPPORTS_COOKIES=1; domain=.sciencedirect.com
+Option DomainCookieOnly
+Title ScienceDirect
+URL http://www.sciencedirect.com/
+DJ sciencedirect.com
+DJ cs.sciencedirect.com
+DJ linkinghub.elsevier.com
+HJ linkinghub.elsevier.com
+HJ cs.sciencedirect.com
+Find value="http://
+Replace value="http://^A
+Option Cookie

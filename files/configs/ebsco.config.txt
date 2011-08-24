@@ -1,0 +1,6 @@
+Title  EBSCO Databases
+URL    http://search.ebscohost.com/
+DJ     epnet.com
+DJ     ebsco.com
+HJ     search.ebscohost.com
+DJ     ebscohost.com

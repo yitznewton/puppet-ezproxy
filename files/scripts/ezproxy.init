@@ -1,0 +1,121 @@
+#!/bin/sh -e
+### BEGIN INIT INFO
+# Provides:          ezproxy
+# Required-Start:    $local_fs $remote_fs $network $syslog
+# Required-Stop:     $local_fs $remote_fs $network $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop EZproxy server
+### END INIT INFO
+#
+# ezproxy               This init.d script is used to start ezproxy.
+#                       It basically just calls ezproxy.
+
+set -e
+set -u
+
+PROXYROOT=/var/www/ezproxy
+PIDDIR=/var/run/ezproxy
+
+[ $(ls -1 $PROXYROOT/sites-enabled/ | wc -l | sed -e 's/ *//;') -eq 0 ] && \
+echo "You haven't enabled any instances yet, so I'm not starting ezproxy."
+
+. /lib/lsb/init-functions
+
+test -f /etc/default/rcS && . /etc/default/rcS
+
+ezproxy_start() {
+        THISPIDFILE=$PIDDIR/$(basename $1).pid
+        start-stop-daemon --start --quiet --oknodo --make-pidfile \
+          --pidfile $THISPIDFILE --exec $1/ezproxy \
+          --startas $1/ezproxy > /dev/null &
+        return $?
+}
+
+ezproxy_stop() {
+        THISPIDFILE=$PIDDIR/$(basename $1).pid
+        start-stop-daemon --stop --quiet --oknodo --pidfile $THISPIDFILE
+        return $?
+}
+
+case $1 in
+        start)
+                log_daemon_msg "Starting EZproxy servers"
+                install -o root -g root -m 755 -d $PIDDIR
+                STARTFAIL=0
+                for d in $PROXYROOT/sites-enabled/*
+                do
+                        PIDFILE=$PIDDIR/$(basename $d).pid
+                        if [ -s $PIDFILE ] ; then
+                                log_daemon_msg "EZproxy $(basename $d) already running"
+                                continue
+                        fi
+                        log_daemon_msg "Starting EZproxy $(basename $d)"
+                        ezproxy_start $d
+                        if [ $? != 0 ] ; then
+                                STARTFAIL=1
+                                continue
+                        fi
+                done
+                log_end_msg $STARTFAIL
+        ;;
+        stop)
+                log_daemon_msg "Stopping EZproxy servers"
+                install -o root -g root -m 755 -d $PIDDIR
+                STOPFAIL=0
+                for d in $PROXYROOT/sites-available/*
+                do
+                        PIDFILE=$PIDDIR/$(basename $d).pid
+                        if ! [ -s $PIDFILE ] ; then
+                                continue
+                        fi
+
+                        log_daemon_msg "Stopping EZproxy $(basename $d)"
+                        ezproxy_stop $d
+                        if [ $? != 0 ] ; then
+                          STOPFAIL=1
+                          continue
+                        fi
+                        rm $PIDFILE
+                done
+                log_end_msg $STOPFAIL
+        ;;
+        restart)
+                log_daemon_msg "Restarting EZproxy servers"
+                install -o root -g root -m 755 -d $PIDDIR
+                RESTARTFAIL=0
+                for d in $PROXYROOT/sites-available/*
+                do
+                        PIDFILE=$PIDDIR/$(basename $d).pid
+
+                        if [ -e $PIDFILE ] ; then
+                                log_daemon_msg "Stopping EZproxy $(basename $d)"
+                                
+                                ezproxy_stop $d
+                                if [ $? != 0 ] ; then
+                                        RESTARTFAIL=1
+                                        continue
+                                fi
+                                rm $PIDFILE
+                        fi
+                done
+
+                sleep 1
+                
+                for d in $PROXYROOT/sites-enabled/*
+                do
+                        log_daemon_msg "Starting EZproxy $(basename $d)"
+                        ezproxy_start $d
+                        if [ $? != 0 ] ; then
+                                RESTARTFAIL=1
+                                continue
+                        fi
+                done
+                log_end_msg $RESTARTFAIL
+        ;;
+        *)
+                log_success_msg "Usage: /etc/init.d/ezproxy {start|stop|restart}"
+                exit 1
+        ;;
+esac
+
