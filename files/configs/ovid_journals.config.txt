@@ -1,0 +1,5 @@
+Title   Ovid Journals
+URL     http://gateway.ovid.com/
+DJ      ovid.com
+DJ      gateway.ovid.com
+DJ      gateway.ut.ovid.com

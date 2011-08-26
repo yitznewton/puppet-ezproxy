@@ -1,0 +1,3 @@
+Title   Journal of Immunology
+URL     http://www.jimmunol.org
+DJ      jimmunol.org

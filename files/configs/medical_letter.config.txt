@@ -1,0 +1,4 @@
+Title   MedicalLetter
+URL     http://medicalletter.org/index.html
+DJ      medicalletter.com
+DJ      medicalletter.org

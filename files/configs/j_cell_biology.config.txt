@@ -1,0 +1,3 @@
+Title   Journal of Cell Biology
+URL     http://www.jcb.org
+DJ      jcb.org
