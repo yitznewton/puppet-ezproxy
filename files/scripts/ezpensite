@@ -1,10 +1,12 @@
 #!/bin/bash
 
-if [ ! -d "/var/www/ezproxy/sites-available/$1" ]
+SITE=$(basename $1)
+
+if [ ! -d "/var/www/ezproxy/sites-available/$SITE" ]
 then
-  echo "No such site $1"
+  echo "No such site $SITE"
   exit 1
 fi
 
-ln -s "/var/www/ezproxy/sites-available/$1" "/var/www/ezproxy/sites-enabled/"
+ln -s "/var/www/ezproxy/sites-available/$SITE" "/var/www/ezproxy/sites-enabled/"
 
