@@ -13,6 +13,8 @@ Intro
 Creates tree in /var/www/ezproxy:
 ```
 /var/www/ezproxy/
+├── bin
+│   └── ezproxy
 ├── configs
 │   ├── access_medicine.config.txt
 │   ├── acm.config.txt
@@ -25,13 +27,11 @@ Creates tree in /var/www/ezproxy:
 │   ├── 01-lij
 │   │   ├── config.txt
 │   │   ├── docs -> /var/www/ezproxy/docs
-│   │   ├── ezproxy
 │   │   ├── ezproxy.key -> /var/www/ezproxy/ezproxy.key
 │   │   └── user.txt
 │   └── 02-tun
 │       ├── config.txt
 │       ├── docs -> /var/www/ezproxy/docs
-│       ├── ezproxy
 │       ├── ezproxy.key -> /var/www/ezproxy/ezproxy.key
 │       └── user.txt
 └── sites-enabled
