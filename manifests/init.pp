@@ -45,6 +45,17 @@ class ezproxy {
     owner => ezproxy,
     mode => 600,
   }
+  
+  file { '/var/www/ezproxy/bin':
+    ensure => directory,
+    owner => root,
+  }
+
+  file { '/var/www/ezproxy/bin/ezproxy':
+    source => 'puppet:///modules/ezproxy/ezproxy-5.4.1.bin',
+    owner => ezproxy,
+    group => root,
+  }
 
   file { '/var/www/ezproxy/sites-available':
     ensure => directory,
@@ -68,12 +79,6 @@ class ezproxy {
       target => '/var/www/ezproxy/docs',
     }
 
-    file { "/var/www/ezproxy/sites-available/$title/ezproxy":
-      source => 'puppet:///modules/ezproxy/ezproxy-5.4.1.bin',
-      owner => ezproxy,
-      group => root,
-    }
-
     file { "/var/www/ezproxy/sites-available/$title/ezproxy.key":
       ensure => link,
       target => '/var/www/ezproxy/ezproxy.key',
@@ -90,14 +95,14 @@ class ezproxy {
       owner => ezproxy,
     }
 
-    exec { "/var/www/ezproxy/sites-available/$title/ezproxy -m":
-      cwd => "/var/www/ezproxy/sites-available/$title",
+    exec { "init files $title":
+      command => "/var/www/ezproxy/bin/ezproxy -m -d /var/www/ezproxy/sites-available/$title",
       user => ezproxy,
       returns => [0, 1],
       require => [
         Package['ia32-libs'],
+        File['/var/www/ezproxy/bin/ezproxy'],
         File["/var/www/ezproxy/sites-available/$title/docs"],
-        File["/var/www/ezproxy/sites-available/$title/ezproxy"],
         File["/var/www/ezproxy/sites-available/$title/config.txt"],
         File["/var/www/ezproxy/sites-available/$title/user.txt"],
         File['/var/www/ezproxy/configs'],

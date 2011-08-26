@@ -27,8 +27,8 @@ test -f /etc/default/rcS && . /etc/default/rcS
 ezproxy_start() {
         THISPIDFILE=$PIDDIR/$(basename $1).pid
         start-stop-daemon --start --quiet --oknodo --make-pidfile \
-          --pidfile $THISPIDFILE --exec $1/ezproxy \
-          --startas $1/ezproxy > /dev/null &
+          --pidfile $THISPIDFILE \
+          --startas $PROXYROOT/bin/ezproxy -- -d $1 > /dev/null &
         return $?
 }
 
